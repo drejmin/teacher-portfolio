@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-   "homepage": "https://drejmin.github.io/teacher-portfolio",
+  "homepage": "https://drejmin.github.io/teacher-portfolio",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
@@ -12,7 +12,6 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-dropdown-menu": "^2.1.14",
