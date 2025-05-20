@@ -277,7 +277,7 @@ export default function App() {
                         <img
                           src={item.src}
                           alt={item.alt}
-                          className="w-full min-w-400px max-h-[1000px] object-contain rounded-md"
+                          className="w-full max-h-[1000px] object-contain rounded-md"
                         />
                       </div>
                       <p className="mt-4 text-center text-sm text-muted-foreground font-black">
