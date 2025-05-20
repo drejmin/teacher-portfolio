@@ -253,9 +253,10 @@ export default function App() {
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-[600px]">
-                    <iframe
+                    <img
                       src="https://i.imgur.com/YK5KTDj.jpeg"
-                      className="w-full h-full rounded-md"
+                      alt="Math Lesson Exemplar"
+                      className="w-full h-full object-contain rounded-md"
                       title="Math Lesson Exemplar"
                     />
                   </div>
@@ -266,9 +267,10 @@ export default function App() {
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-[600px]">
-                    <iframe
+                    <img
                       src="https://i.imgur.com/vi54dqM.jpeg"
-                      className="w-full h-full rounded-md"
+                      alt="Math Lesson slide Deck"
+                      className="w-full h-full object-contain rounded-md"
                       title="Math Lesson slide Deck"
                     />
                   </div>
@@ -279,9 +281,10 @@ export default function App() {
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-[600px]">
-                    <iframe
+                    <img
                       src="https://i.imgur.com/unIS7zJ.jpeg"
-                      className="w-full h-full rounded-md"
+                      alt="Exit Slip Exemplar"
+                      className="w-full h-full object-contain rounded-md"
                       title="Exit Slip Exemplar"
                     />
                   </div>
@@ -291,9 +294,10 @@ export default function App() {
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-[600px]">
-                    <iframe
+                    <img
                       src="https://i.imgur.com/GsTDV2g.jpeg"
-                      className="w-full h-full rounded-md"
+                      alt="Math Lesson Plan Rubric"
+                      className="w-full h-full object-contain rounded-md"
                       title="Math Lesson Plan Rubric"
                     />
                   </div>
@@ -304,9 +308,10 @@ export default function App() {
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-[600px]">
-                    <iframe
+                    <img
                       src="https://i.imgur.com/3yGIP2O.jpeg"
-                      className="w-full h-full rounded-md"
+                      alt="Math Lesson Plan Rubric"
+                      className="w-full h-full object-contain rounded-md"
                       title="Math Lesson Plan Rubric"
                     />
                   </div>
