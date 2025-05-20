@@ -254,9 +254,9 @@ export default function App() {
                 <CarouselItem>
                   <div className="w-full h-[600px]">
                     <iframe
-                      src="CPM3 9.1.3.docx.pdf"
+                      src="https://i.imgur.com/YK5KTDj.jpeg"
                       className="w-full h-full rounded-md"
-                      title="Math Lesson slide Deck"
+                      title="Math Lesson Exemplar"
                     />
                   </div>
                   <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -267,7 +267,7 @@ export default function App() {
                 <CarouselItem>
                   <div className="w-full h-[600px]">
                     <iframe
-                      src="/CPM Ch9 9.1.3.pdf"
+                      src="https://i.imgur.com/vi54dqM.jpeg"
                       className="w-full h-full rounded-md"
                       title="Math Lesson slide Deck"
                     />
@@ -280,7 +280,7 @@ export default function App() {
                 <CarouselItem>
                   <div className="w-full h-[600px]">
                     <iframe
-                      src="/9.1.3 Exit Slip (CPM IM 3).docx.pdf"
+                      src="https://i.imgur.com/unIS7zJ.jpeg"
                       className="w-full h-full rounded-md"
                       title="Exit Slip Exemplar"
                     />
@@ -292,7 +292,7 @@ export default function App() {
                 <CarouselItem>
                   <div className="w-full h-[600px]">
                     <iframe
-                      src="/Ch 7 Parent Review Guide .pdf"
+                      src="https://i.imgur.com/GsTDV2g.jpeg"
                       className="w-full h-full rounded-md"
                       title="Math Lesson Plan Rubric"
                     />
@@ -305,7 +305,7 @@ export default function App() {
                 <CarouselItem>
                   <div className="w-full h-[600px]">
                     <iframe
-                      src="/Parent Guide for Ch 7.pdf"
+                      src="https://i.imgur.com/3yGIP2O.jpeg"
                       className="w-full h-full rounded-md"
                       title="Math Lesson Plan Rubric"
                     />
