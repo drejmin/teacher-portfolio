@@ -100,7 +100,7 @@ export default function App() {
       <header
         className="fixed top-0 left-0 w-full backdrop-blur-md bg-white/70 z-50"
       >
-        <nav className="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center p-4 text-black">
+        <nav className="w-full max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center p-4 text-black">
           <div className="w-full flex justify-between items-center">
             <div className="md:hidden">
               <Button
@@ -272,7 +272,7 @@ export default function App() {
                   ))}
                   {/* PDF CarouselItems */}
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={lessonRubric} className="w-full h-full max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -280,7 +280,7 @@ export default function App() {
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={exitSlip} className="w-full h-full max-w-full rounded-md" title="9.1.3 Exit Slip" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -288,7 +288,7 @@ export default function App() {
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={ch7Guide} className="w-full h-full max-w-full rounded-md" title="Parent Guide for Ch 7" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -296,7 +296,7 @@ export default function App() {
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={ch7Review} className="w-full h-full max-w-full rounded-md" title="Ch 7 Review Guide" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -304,7 +304,7 @@ export default function App() {
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={cpm913} className="w-full h-full max-w-full rounded-md" title="CPM 9.1.3 Lesson Plan" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
@@ -312,7 +312,7 @@ export default function App() {
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
+                    <div className="w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-md mx-auto">
                       <iframe src={cpm3_913} className="w-full h-full max-w-full rounded-md" title="CPM3 9.1.3 Document" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
