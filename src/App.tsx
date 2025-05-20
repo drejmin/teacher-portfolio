@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
 import exitSlip from './assets/9.1.3 Exit Slip (CPM IM 3).docx.pdf'
 import ch7Guide from './assets/Parent Guide for Ch 7.pdf'
@@ -27,6 +27,7 @@ import {
 
 export default function App() {
   const videoRef = useRef<HTMLIFrameElement>(null)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -99,64 +100,48 @@ export default function App() {
       <header
         className="fixed top-0 left-0 w-full backdrop-blur-md bg-white/70 z-50"
       >
-        <nav className="max-w-4xl mx-auto flex justify-between items-center p-4 text-black">
-          <ul className="flex space-x-2 text-sm md:text-base">
-            <li>
+        <nav className="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center p-4 text-black">
+          <div className="w-full flex justify-between items-center">
+            <div className="md:hidden">
               <Button
                 variant="ghost"
-                asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
+                size="sm"
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="text-black"
               >
-                <a href="#bio" >Bio</a>
+                ☰
               </Button>
-            </li>
-            <li>
+            </div>
+            <ModeToggle />
+          </div>
+
+          <div className={`flex-col items-start space-y-2 mt-4 ${menuOpen ? "flex" : "hidden"} md:hidden w-full`}>
+            {["bio", "why", "reflections", "artifacts", "goals", "contact"].map((id) => (
               <Button
+                key={id}
                 variant="ghost"
                 asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
+                className="w-full text-left text-sm"
+                onClick={() => setMenuOpen(false)}
               >
-                <a href="#why" >Why I Teach</a>
+                <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
               </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
-              >
-                <a href="#reflections">Reflections</a>
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
-              >
-                <a href="#artifacts">Artifacts</a>
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
-              >
-                <a href="#goals">Goals</a>
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                asChild
-                className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
-              >
-                <a href="#contact">Contact</a>
-              </Button>
-            </li>
+            ))}
+          </div>
+
+          <ul className="hidden md:flex space-x-2 text-sm md:text-base">
+            {["bio", "why", "reflections", "artifacts", "goals", "contact"].map((id) => (
+              <li key={id}>
+                <Button
+                  variant="ghost"
+                  asChild
+                  className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
+                >
+                  <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+                </Button>
+              </li>
+            ))}
           </ul>
-          <ModeToggle />
         </nav>
       </header>
 
