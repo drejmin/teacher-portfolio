@@ -205,7 +205,7 @@ export default function App() {
             <tr className="list-disc list-inside space-y-3 max-w-xl text-left">
               <td>
                 <ScrollArea className="h-[300px] w-full p-4">
-                  <Accordion type="single" collapsible className="w-full max-w-2xl">
+                  <Accordion type="single" collapsible className="w-full max-w-4xl">
                     <AccordionItem value="item-1">
                       <AccordionTrigger className="text-black dark:text-black">Strengths</AccordionTrigger>
                       <AccordionContent>
