@@ -272,48 +272,72 @@ export default function App() {
                   ))}
                   {/* PDF CarouselItems */}
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={lessonRubric} className="w-full h-full max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={lessonRubric}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="Lesson Plan Rubric"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       This rubric outlines expectations for effective secondary math lesson planning.
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={exitSlip} className="w-full h-full max-w-full rounded-md" title="9.1.3 Exit Slip" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={exitSlip}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="9.1.3 Exit Slip"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Student exit slip demonstrating understanding of trigonometric reference angles and ratios.
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={ch7Guide} className="w-full h-full max-w-full rounded-md" title="Parent Guide for Ch 7" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={ch7Guide}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="Parent Guide for Ch 7"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       A parent guide explaining core logarithmic concepts covered in Chapter 7.
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={ch7Review} className="w-full h-full max-w-full rounded-md" title="Ch 7 Review Guide" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={ch7Review}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="Ch 7 Review Guide"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       A simple review guide for parents to help students with exponent and logarithm topics.
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={cpm913} className="w-full h-full max-w-full rounded-md" title="CPM 9.1.3 Lesson Plan" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={cpm913}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="CPM 9.1.3 Lesson Plan"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Lesson materials for CPM Chapter 9, Section 1.3, focusing on trigonometry and unit circle.
                     </p>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="w-full h-[600px]">
-                      <iframe src={cpm3_913} className="w-full h-full max-w-full rounded-md" title="CPM3 9.1.3 Document" />
+                    <div className="w-full max-h-[80vh] overflow-y-auto rounded-md">
+                      <iframe
+                        src={cpm3_913}
+                        className="w-full h-[100%] min-h-[500px] md:h-[600px] max-h-[1000px] rounded-md"
+                        title="CPM3 9.1.3 Document"
+                      />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Supporting lesson resources aligned to CPM3 Chapter 9, 9.1.3 objectives.
