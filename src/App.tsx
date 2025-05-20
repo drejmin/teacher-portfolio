@@ -122,8 +122,8 @@ export default function App() {
               <p className="mb-6 max-w-xl">
                 Hello my name is DeAndre Minor. I am a high school mathematics educator committed to building student-centered learning 
                 environments rooted in equity, academic rigor, and college readiness. My classroom blends mathematical
-                logic, real-world applications, and creativity to help students grow into capable, confident thinkers. I teach Illustrative Math 3 and 
-                Illustrative math 3 honors, which is a mix of Geometry and Algebra II with a sprinkles of Pre-Calculus built in. The class is predominantly 
+                logic, real-world applications, and creativity to help students grow into capable, confident thinkers. I teach Integrated Math 3 and 
+                Integrated math 3 honors, which is a mix of Geometry and Algebra II with a sprinkles of Pre-Calculus built in. The class is predominantly 
                 juniors, however I do also have sophmores and seniors.
               </p>
               {/* <p className="max-w-xl">(A space for profile photo will be included here.)</p> */}
