@@ -191,7 +191,7 @@ export default function App() {
               <td>
                 <ScrollArea className="h-[300px] w-full p-4">
                   <Accordion type="single" collapsible className="w-full max-w-4xl">
-                    <AccordionItem value="item-1">
+                    <AccordionItem value="item-1" className="bg-white dark:bg-zinc-800 rounded-md">
                       <AccordionTrigger className="text-black dark:text-white">Strengths</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Creating a Positive, Inclusive Learning Environment:</strong> I foster an academically rigorous, culturally responsive,
@@ -208,7 +208,7 @@ export default function App() {
                       </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-2">
+                    <AccordionItem value="item-2" className="bg-white dark:bg-zinc-800 rounded-md">
                       <AccordionTrigger className="text-black dark:text-white">Opportunities for Growth</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Advancing Toward Innovation:</strong> My next step is moving beyond consistency into innovation—encouraging greater student and family leadership in 
@@ -231,7 +231,7 @@ export default function App() {
                       </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-3">
+                    <AccordionItem value="item-3" className="bg-white dark:bg-zinc-800 rounded-md">
                       <AccordionTrigger className="text-black dark:text-white">What Surprised Me</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Communication: </strong>Embedding culturally responsive practices in behavior systems, holding high levels of rigor in instruction, and communication with both students and parents 
