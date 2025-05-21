@@ -185,14 +185,14 @@ export default function App() {
             </div>
           </section>
 
-          <section id="reflections" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-white">
+          <section id="reflections" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
             <h2 className="text-xl font-semibold mb-6">CSTP Growth and Development</h2>
             <tr className="list-disc list-inside space-y-3 max-w-xl text-left">
               <td>
                 <ScrollArea className="h-[300px] w-full p-4">
                   <Accordion type="single" collapsible className="w-full max-w-4xl">
                     <AccordionItem value="item-1">
-                      <AccordionTrigger className="text-black dark:text-black">Strengths</AccordionTrigger>
+                      <AccordionTrigger className="text-black dark:text-white">Strengths</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Creating a Positive, Inclusive Learning Environment:</strong> I foster an academically rigorous, culturally responsive,
                          and emotionally safe classroom where students are taught to and expected to take ownership of their learning and learning environment.</p>
@@ -209,7 +209,7 @@ export default function App() {
                     </AccordionItem>
 
                     <AccordionItem value="item-2">
-                      <AccordionTrigger className="text-black dark:text-black">Opportunities for Growth</AccordionTrigger>
+                      <AccordionTrigger className="text-black dark:text-white">Opportunities for Growth</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Advancing Toward Innovation:</strong> My next step is moving beyond consistency into innovation—encouraging greater student and family leadership in 
                         classroom norms, learning design, and school culture. I have realized that I need to open my classroom up more to create a more robust student centered environment 
@@ -232,7 +232,7 @@ export default function App() {
                     </AccordionItem>
 
                     <AccordionItem value="item-3">
-                      <AccordionTrigger className="text-black dark:text-black">What Surprised Me</AccordionTrigger>
+                      <AccordionTrigger className="text-black dark:text-white">What Surprised Me</AccordionTrigger>
                       <AccordionContent>
                         <p><strong>Communication: </strong>Embedding culturally responsive practices in behavior systems, holding high levels of rigor in instruction, and communication with both students and parents 
                           has become a defining element of my teaching identity. Students have gotten a lot more comfortable asking questions and seeking help from both their peers and myself, 
@@ -273,7 +273,7 @@ export default function App() {
                   {/* PDF CarouselItems */}
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={lessonRubric} className="w-full h-full max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       This rubric outlines expectations for effective secondary math lesson planning.
@@ -281,7 +281,7 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={exitSlip} className="w-full h-full max-w-full rounded-md" title="9.1.3 Exit Slip" />
+                      <iframe src={exitSlip} className="w-full h-[600px] max-w-full rounded-md" title="9.1.3 Exit Slip" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Student exit slip demonstrating understanding of trigonometric reference angles and ratios.
@@ -289,7 +289,7 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={ch7Guide} className="w-full h-full max-w-full rounded-md" title="Parent Guide for Ch 7" />
+                      <iframe src={ch7Guide} className="w-full h-[600px] max-w-full rounded-md" title="Parent Guide for Ch 7" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       A parent guide explaining core logarithmic concepts covered in Chapter 7.
@@ -297,7 +297,7 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={ch7Review} className="w-full h-full max-w-full rounded-md" title="Ch 7 Review Guide" />
+                      <iframe src={ch7Review} className="w-full h-[600px] max-w-full rounded-md" title="Ch 7 Review Guide" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       A simple review guide for parents to help students with exponent and logarithm topics.
@@ -305,7 +305,7 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={cpm913} className="w-full h-full max-w-full rounded-md" title="CPM 9.1.3 Lesson Plan" />
+                      <iframe src={cpm913} className="w-full h-[600px] max-w-full rounded-md" title="CPM 9.1.3 Lesson Plan" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Lesson materials for CPM Chapter 9, Section 1.3, focusing on trigonometry and unit circle.
@@ -313,7 +313,7 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={cpm3_913} className="w-full h-full max-w-full rounded-md" title="CPM3 9.1.3 Document" />
+                      <iframe src={cpm3_913} className="w-full h-[600px] max-w-full rounded-md" title="CPM3 9.1.3 Document" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
                       Supporting lesson resources aligned to CPM3 Chapter 9, 9.1.3 objectives.
