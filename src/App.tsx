@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
+import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
 import { Button } from "./components/ui/button"
 import {
   Carousel,
@@ -182,28 +183,29 @@ export default function App() {
               <Carousel>
               <div className="overflow-hidden touch-pan-y">
                 <CarouselContent>
-                  {/* Image CarouselItems, scrollable image only */}
-                  {artifactImages.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="w-full h-[600px] overflow-y-auto touch-pan-y">
-                        <img
-                          src={item.src}
-                          alt={item.alt}
-                          className="w-full max-h-[1000px] object-contain rounded-md"
-                        />
-                      </div>
-                      <p className="mt-4 text-center text-sm text-muted-foreground font-black">
-                        {item.caption}
-                      </p>
-                    </CarouselItem>
-                  ))}
                   {/* PDF CarouselItems */}
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
                       <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
                     <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      This rubric outlines expectations for effective secondary math lesson planning.
+                      This is a rubric that I created that sets up expectations for effective secondary math lesson planning.
+                      It focuses on the purpose of the activity, criteria as well as questions. It is flexible enough to add 
+                      things in or take things out without being too cumbersome and still maintaning a high level of rigor. 
+                    </p>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={oneNoteWriteUp} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
+                      OneNote has been one of my most useful organizational tools for lesson planning,
+                       coaching notes, induction reflections, and classroom resources. I use it to 
+                       quickly organize instructional ideas, observation feedback, assessment data, 
+                       and lesson adjustments in one place. It has helped streamline planning and 
+                       reflection, especially when balancing multiple courses and long-term projects. Using
+                       this application works best with a stylus however, it can be utilized without one as 
+                       well.
                     </p>
                   </CarouselItem>
                 </CarouselContent>
