@@ -225,6 +225,22 @@ export default function App() {
                 <CarouselContent>
                   {/* PDF CarouselItems */}
                   <CarouselItem>
+                    <h3 className="text-l font-semibold mb-6 text-center"> NotebookLM</h3>
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                     NotebookLM has become a valuable tool for organizing information, summarizing resources, and 
+                     supporting lesson preparation. I use it to upload readings, lesson materials, and instructional 
+                     documents so I can quickly generate summaries, guiding questions, and key ideas for instruction. 
+                     It has been especially helpful when preparing review materials, analyzing complex texts, or organizing 
+                     ideas across multiple classes and projects. Teaching multiple topics while controlling the information that is 
+                     being used to help develop lessons and ideas makes creating new curriculum much easier than contantly looking through
+                     already sourced material piece by piece. I am excited to continue using NotebookLM because it saves 
+                     planning time while helping create more organized and accessible learning materials for students.
+                    </p>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={notebookLM} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
                     <h3 className="text-l font-semibold mb-6 text-center">Lesson Plan Rubric</h3>
                     <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
                       This is a rubric that I created that sets up expectations for effective secondary math lesson planning.
@@ -261,22 +277,6 @@ export default function App() {
                     </p>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
                       <iframe src={mesaEthics} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <h3 className="text-l font-semibold mb-6 text-center"> NotebookLM</h3>
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
-                     NotebookLM has become a valuable tool for organizing information, summarizing resources, and 
-                     supporting lesson preparation. I use it to upload readings, lesson materials, and instructional 
-                     documents so I can quickly generate summaries, guiding questions, and key ideas for instruction. 
-                     It has been especially helpful when preparing review materials, analyzing complex texts, or organizing 
-                     ideas across multiple classes and projects. Teaching multiple topics while controlling the information that is 
-                     being used to help develop lessons and ideas makes creating new curriculum much easier than contantly looking through
-                     already sourced material piece by piece. I am excited to continue using NotebookLM because it saves 
-                     planning time while helping create more organized and accessible learning materials for students.
-                    </p>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={notebookLM} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
                   </CarouselItem>
                 </CarouselContent>
