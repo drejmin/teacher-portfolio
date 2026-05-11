@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
-import cstp from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
+// import cstp from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
 import mesaEthics from'./assets/MESA Ethics - Presentation.pdf'
 import notebookLM from'./assets/NotebookLM screenshot.pdf'
 import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
@@ -147,38 +147,14 @@ export default function App() {
 
           <section id="cstp" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
             <h2 className="text-xl font-semibold mb-6">CSTP growth and Development</h2>
-            <Carousel className="w-full max-w-4xl">
               <div className="overflow-hidden touch-pan-y">
-                <CarouselContent>
-                  {/* Image CarouselItems, scrollable image only */}
-                  {/* {artifactImages.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="w-full h-[min(60vh,600px)] min-h-[320px] overflow-y-auto touch-pan-y">
-                        <img
-                          src={item.src}
-                          alt={item.alt}
-                          className="w-full max-h-[1000px] object-contain rounded-md"
-                        />
-                      </div>
-                      <p className="mx-auto mt-4 max-w-3xl text-center text-sm text-muted-foreground font-black">
-                        {item.caption}
-                      </p>
-                    </CarouselItem>
-                  ))} */}
-                  {/* PDF CarouselItems */}
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                    {/* <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
                       <iframe src={cstp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
-                    </div>
+                    </div> */}
                     <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
                       Explanations for CSTP performances.
-                    </p>
-                  </CarouselItem>
-                </CarouselContent>
+                    </p>  
               </div>
-              <CarouselPrevious className='text-black'/>
-              <CarouselNext className='text-black'/>
-            </Carousel>
           </section>
 
           <section id="artifacts" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
