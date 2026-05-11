@@ -198,7 +198,7 @@ export default function App() {
                     <br />
                     <h3 className="text-l font-semibold mb-6 text-center">My Advice to New Teachers</h3>
                     
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-md text-muted-foreground">
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
                       Give yourself permission to grow over time. Strong teaching does not happen overnight, and some 
                       of the best learning experiences come from reflecting on lessons that did not go perfectly. Focus 
                       on building relationships with students first, because students are more willing to take academic 
