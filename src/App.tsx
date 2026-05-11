@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
+import cstp from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
+import mesaEthics from'./assets/MESA Ethics - Presentation.pdf'
 import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
 import { Button } from "./components/ui/button"
 import {
@@ -37,18 +39,18 @@ export default function App() {
     }
   }, [])
 
-  const artifactImages = [
-    {
-      src: "https://i.imgur.com/oSaJWVH.jpeg",
-      alt: "Student Work Example 1",
-      caption: "Student work showing application of logarithmic rules.",
-    },
-    {
-      src: "https://i.imgur.com/QqPw1lg.jpeg",
-      alt: "Student Work Example 2",
-      caption: "Student work showing application of logarithmic rules.",
-    },
-  ];
+  // const artifactImages = [
+  //   {
+  //     src: "https://i.imgur.com/oSaJWVH.jpeg",
+  //     alt: "Student Work Example 1",
+  //     caption: "Student work showing application of logarithmic rules.",
+  //   },
+  //   {
+  //     src: "https://i.imgur.com/QqPw1lg.jpeg",
+  //     alt: "Student Work Example 2",
+  //     caption: "Student work showing application of logarithmic rules.",
+  //   },
+  // ];
 
   const navItems = [
     { id: "introduction", label: "Introduction" },
@@ -141,33 +143,33 @@ export default function App() {
             </div>
           </section>
 
-          <section id="artifacts" className="snap-start scroll-mt-24 w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+          <section id="artifacts" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
             <h2 className="text-xl font-semibold mb-6">Developing as a Professional Educator</h2>
-            <Carousel>
+            <Carousel className="w-full max-w-4xl">
               <div className="overflow-hidden touch-pan-y">
                 <CarouselContent>
                   {/* Image CarouselItems, scrollable image only */}
-                  {artifactImages.map((item, index) => (
+                  {/* {artifactImages.map((item, index) => (
                     <CarouselItem key={index}>
-                      <div className="w-full h-[600px] overflow-y-auto touch-pan-y">
+                      <div className="w-full h-[min(60vh,600px)] min-h-[320px] overflow-y-auto touch-pan-y">
                         <img
                           src={item.src}
                           alt={item.alt}
                           className="w-full max-h-[1000px] object-contain rounded-md"
                         />
                       </div>
-                      <p className="mt-4 text-center text-sm text-muted-foreground font-black">
+                      <p className="mx-auto mt-4 max-w-3xl text-center text-sm text-muted-foreground font-black">
                         {item.caption}
                       </p>
                     </CarouselItem>
-                  ))}
+                  ))} */}
                   {/* PDF CarouselItems */}
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={cstp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      This rubric outlines expectations for effective secondary math lesson planning.
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                      Explanations for CSTP performances.
                     </p>
                   </CarouselItem>
                 </CarouselContent>
@@ -177,18 +179,18 @@ export default function App() {
             </Carousel>
           </section>
 
-          <section id="reflections" className="snap-start scroll-mt-24 w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+          <section id="reflections" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
             <h2 className="text-xl font-semibold mb-6">Contributing to the Profession</h2>
-            <tr className="list-disc list-inside space-y-3 max-w-xl text-left">
-              <Carousel>
+            <div className="w-full max-w-4xl text-left">
+              <Carousel className="w-full">
               <div className="overflow-hidden touch-pan-y">
                 <CarouselContent>
                   {/* PDF CarouselItems */}
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={lessonRubric} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
                       This is a rubric that I created that sets up expectations for effective secondary math lesson planning.
                       It focuses on the purpose of the activity, criteria as well as questions. It is flexible enough to add 
                       things in or take things out without being too cumbersome and still maintaning a high level of rigor. 
@@ -196,9 +198,9 @@ export default function App() {
                   </CarouselItem>
                   <CarouselItem>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={oneNoteWriteUp} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={oneNoteWriteUp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
                       OneNote has been one of my most useful organizational tools for lesson planning,
                        coaching notes, induction reflections, and classroom resources. I use it to 
                        quickly organize instructional ideas, observation feedback, assessment data, 
@@ -206,6 +208,18 @@ export default function App() {
                        reflection, especially when balancing multiple courses and long-term projects. Using
                        this application works best with a stylus however, it can be utilized without one as 
                        well.
+                    </p>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={mesaEthics} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                     I regularly use Canva to create slide decks, student-facing handouts, project visuals, and 
+                     collaborative activities for both my IM3 Honors and MESA classes. Canva has helped me make 
+                     lessons more visually engaging and easier for students to follow, especially during project-based 
+                     learning and engineering design activities. I plan to continue using it because it allows students 
+                     to present ideas creatively while also supporting organization and accessibility for visual learners.
                     </p>
                   </CarouselItem>
                 </CarouselContent>
@@ -272,7 +286,7 @@ export default function App() {
                   </Accordion>
                 </ScrollArea>
               </td> */}
-            </tr>
+            </div>
           </section>
 
         </div>
