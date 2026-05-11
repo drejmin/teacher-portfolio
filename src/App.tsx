@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
 import cstp from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
 import mesaEthics from'./assets/MESA Ethics - Presentation.pdf'
+import notebookLM from'./assets/NotebookLM screenshot.pdf'
 import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
 import { Button } from "./components/ui/button"
 import {
@@ -220,6 +221,21 @@ export default function App() {
                      lessons more visually engaging and easier for students to follow, especially during project-based 
                      learning and engineering design activities. I plan to continue using it because it allows students 
                      to present ideas creatively while also supporting organization and accessibility for visual learners.
+                    </p>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={notebookLM} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                     NotebookLM has become a valuable tool for organizing information, summarizing resources, and 
+                     supporting lesson preparation. I use it to upload readings, lesson materials, and instructional 
+                     documents so I can quickly generate summaries, guiding questions, and key ideas for instruction. 
+                     It has been especially helpful when preparing review materials, analyzing complex texts, or organizing 
+                     ideas across multiple classes and projects. Teaching multiple topics while controlling the information that is 
+                     being used to help develop lessons and ideas makes creating new curriculum much easier than contantly looking through
+                     already sourced material piece by piece. I am excited to continue using NotebookLM because it saves 
+                     planning time while helping create more organized and accessible learning materials for students.
                     </p>
                   </CarouselItem>
                 </CarouselContent>
