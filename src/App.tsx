@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
-import exitSlip from './assets/9.1.3 Exit Slip (CPM IM 3).docx.pdf'
-import ch7Guide from './assets/Parent Guide for Ch 7.pdf'
-import ch7Review from './assets/Ch 7 Parent Review Guide .pdf'
-import cpm913 from './assets/CPM Ch9 9.1.3.pdf'
-import cpm3_913 from './assets/CPM3 9.1.3.docx.pdf'
 import { Button } from "./components/ui/button"
-import { ThemeProvider } from "./components/theme-provider"
-import { ModeToggle } from "./components/mode-toggle"
 import {
   Carousel,
   CarouselContent,
@@ -50,7 +43,6 @@ export default function App() {
     }
   }, [])
 
-  // --- Begin artifactImages definition
   const artifactImages = [
     {
       src: "https://i.imgur.com/oSaJWVH.jpeg",
@@ -62,46 +54,21 @@ export default function App() {
       alt: "Student Work Example 2",
       caption: "Student work showing application of logarithmic rules.",
     },
-    // {
-    //   src: "https://i.imgur.com/YK5KTDj.jpeg",
-    //   alt: "Math Lesson Exemplar",
-    //   caption:
-    //     "This exemplar was created by working through student material and helped to plan out what would be expected from students and how to better cover the standard that was being set as the focus.",
-    // },
-    // {
-    //   src: "https://i.imgur.com/vi54dqM.jpeg",
-    //   alt: "Math Lesson slide Deck",
-    //   caption:
-    //     "This slide deck was created after working through student material and planning out what would be expected from students and what standard is being set as the focus.",
-    // },
-    // {
-    //   src: "https://i.imgur.com/unIS7zJ.jpeg",
-    //   alt: "Exit Slip Exemplar",
-    //   caption: "This is a fully worked through exit slip for a previous lesson.",
-    // },
-    // {
-    //   src: "https://i.imgur.com/GsTDV2g.jpeg",
-    //   alt: "Parent Support Slide 1",
-    //   caption:
-    //     "This was created when reaching out to parents for them to aid their children in the subject.",
-    // },
-    // {
-    //   src: "https://i.imgur.com/3yGIP2O.jpeg",
-    //   alt: "Parent Support Slide 2",
-    //   caption:
-    //     "This was created when reaching out to parents for them to aid their children in the subject.",
-    // },
   ];
-  // --- End artifactImages definition
+
+  const navItems = [
+    { id: "introduction", label: "Introduction" },
+    { id: "artifacts", label: "Developing as a Professional Educator" },
+    { id: "reflections", label: "Contributing to the Profession" },
+  ];
 
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <div className="text-foreground font-mono transition-colors duration-500 ease-in-out min-h-screen w-full flex flex-col items-center">
       <header
         className="fixed top-0 left-0 w-full backdrop-blur-md bg-white/70 z-50"
       >
-        <nav className="w-full max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center p-4 text-black">
-          <div className="w-full flex justify-between items-center">
+        <nav className="w-full max-w-4xl mx-auto flex flex-col items-center p-4 text-center text-black">
+          <div className="w-full flex justify-center items-center md:hidden">
             <div className="md:hidden">
               <Button
                 variant="ghost"
@@ -112,32 +79,31 @@ export default function App() {
                 ☰
               </Button>
             </div>
-            <ModeToggle />
           </div>
 
-          <div className={`flex-col items-start space-y-2 mt-4 ${menuOpen ? "flex" : "hidden"} md:hidden w-full`}>
-            {["bio", "why", "reflections", "artifacts", "goals", "contact"].map((id) => (
+          <div className={`flex-col items-center space-y-2 mt-4 ${menuOpen ? "flex" : "hidden"} md:hidden w-full`}>
+            {navItems.map((item) => (
               <Button
-                key={id}
+                key={item.id}
                 variant="ghost"
                 asChild
-                className="w-full text-left text-sm"
+                className="w-full justify-center text-center text-sm"
                 onClick={() => setMenuOpen(false)}
               >
-                <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+                <a href={`#${item.id}`}>{item.label}</a>
               </Button>
             ))}
           </div>
 
-          <ul className="hidden md:flex space-x-2 text-sm md:text-base">
-            {["bio", "why", "reflections", "artifacts", "goals", "contact"].map((id) => (
-              <li key={id}>
+          <ul className="hidden md:flex w-full items-center justify-center gap-1 text-sm">
+            {navItems.map((item) => (
+              <li key={item.id}>
                 <Button
                   variant="ghost"
                   asChild
-                  className="transition-shadow duration-300 hover:shadow-md hover:shadow-black"
+                  className="h-auto justify-center px-2 py-2 text-center leading-tight transition-shadow duration-300 hover:shadow-md hover:shadow-black"
                 >
-                  <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+                  <a href={`#${item.id}`}>{item.label}</a>
                 </Button>
               </li>
             ))}
@@ -148,16 +114,16 @@ export default function App() {
       <main className="pt-20 snap-y snap-mandatory overflow-y-auto w-full flex flex-col items-center justify-center p-4">
         <div className="w-full max-w-4xl mx-auto space-y-16">
           <section
-            id="bio"
-            className="snap-start w-full h-screen flex items-center justify-center text-center bg-white dark:bg-zinc-900"
+            id="introduction"
+            className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-10 flex flex-col items-center justify-center gap-6 text-center bg-white dark:bg-zinc-900"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091870622-1e7e6a5eab48')" }}
           >
-            <div className="w-full h-full px-4 md:px-6 flex flex-col items-center justify-center">
-              <h1 className="text-2xl font-bold mb-6">Welcome</h1>
+            <div className="w-full max-w-3xl flex flex-col items-center justify-center">
+              <h1 className="text-2xl font-bold mb-3">Introduction</h1>
               <p className="mb-6 max-w-xl">
                 Hello my name is DeAndre Minor. I am a high school mathematics educator committed to building student-centered learning 
                 environments rooted in equity, academic rigor, and college readiness. My classroom blends mathematical
-                logic, real-world applications, and creativity to help students grow into capable, confident thinkers. I teach Integrated Math 3 and 
+                logic, real-world applications, and creativity to help students grow into capable, confident thinkers. I teach MESA and 
                 Integrated math 3 honors, which is a mix of Geometry and Algebra II with a sprinkles of Pre-Calculus built in. The class is predominantly 
                 juniors, however I do also have sophmores and seniors.
               </p>
@@ -168,27 +134,91 @@ export default function App() {
                 className="rounded-full w-48 h-48 object-cover mt-4"
               />
             </div>
-          </section>
-
-          <section id="why" className="snap-start w-full h-135 px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h1 className="text-2xl font-bold mb-6">Why I Teach</h1>
-            <div className="w-full h-full">
-             <iframe
-              ref={videoRef}
-              className="w-full h-full rounded-md"
-              src="https://www.youtube.com/embed/mUV6g_eAFz8?enablejsapi=1"
-              title="Why I Teach"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <div className="w-full max-w-3xl aspect-video">
+              <iframe
+                ref={videoRef}
+                className="w-full h-full rounded-md shadow-lg"
+                src="https://www.youtube.com/embed/mUV6g_eAFz8?enablejsapi=1"
+                title="Why I Teach"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </section>
 
-          <section id="reflections" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h2 className="text-xl font-semibold mb-6">CSTP Growth and Development</h2>
+          <section id="artifacts" className="snap-start scroll-mt-24 w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+            <h2 className="text-xl font-semibold mb-6">Developing as a Professional Educator</h2>
+            <Carousel>
+              <div className="overflow-hidden touch-pan-y">
+                <CarouselContent>
+                  {/* Image CarouselItems, scrollable image only */}
+                  {artifactImages.map((item, index) => (
+                    <CarouselItem key={index}>
+                      <div className="w-full h-[600px] overflow-y-auto touch-pan-y">
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="w-full max-h-[1000px] object-contain rounded-md"
+                        />
+                      </div>
+                      <p className="mt-4 text-center text-sm text-muted-foreground font-black">
+                        {item.caption}
+                      </p>
+                    </CarouselItem>
+                  ))}
+                  {/* PDF CarouselItems */}
+                  <CarouselItem>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
+                      This rubric outlines expectations for effective secondary math lesson planning.
+                    </p>
+                  </CarouselItem>
+                </CarouselContent>
+              </div>
+              <CarouselPrevious className='text-black'/>
+              <CarouselNext className='text-black'/>
+            </Carousel>
+          </section>
+
+          <section id="reflections" className="snap-start scroll-mt-24 w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+            <h2 className="text-xl font-semibold mb-6">Contributing to the Profession</h2>
             <tr className="list-disc list-inside space-y-3 max-w-xl text-left">
-              <td>
+              <Carousel>
+              <div className="overflow-hidden touch-pan-y">
+                <CarouselContent>
+                  {/* Image CarouselItems, scrollable image only */}
+                  {artifactImages.map((item, index) => (
+                    <CarouselItem key={index}>
+                      <div className="w-full h-[600px] overflow-y-auto touch-pan-y">
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="w-full max-h-[1000px] object-contain rounded-md"
+                        />
+                      </div>
+                      <p className="mt-4 text-center text-sm text-muted-foreground font-black">
+                        {item.caption}
+                      </p>
+                    </CarouselItem>
+                  ))}
+                  {/* PDF CarouselItems */}
+                  <CarouselItem>
+                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
+                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                    </div>
+                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
+                      This rubric outlines expectations for effective secondary math lesson planning.
+                    </p>
+                  </CarouselItem>
+                </CarouselContent>
+              </div>
+              <CarouselPrevious className='text-black'/>
+              <CarouselNext className='text-black'/>
+            </Carousel>
+              {/* <td>
                 <ScrollArea className="h-[300px] w-full p-4">
                   <Accordion type="single" collapsible className="w-full max-w-4xl">
                     <AccordionItem value="item-1" className="bg-white dark:bg-zinc-800 rounded-md">
@@ -246,108 +276,17 @@ export default function App() {
                     </AccordionItem>
                   </Accordion>
                 </ScrollArea>
-              </td>
+              </td> */}
             </tr>
           </section>
 
-          <section id="artifacts" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h2 className="text-xl font-semibold mb-6">Impact on Student Success</h2>
-            <Carousel>
-              <div className="overflow-hidden touch-pan-y">
-                <CarouselContent>
-                  {/* Image CarouselItems, scrollable image only */}
-                  {artifactImages.map((item, index) => (
-                    <CarouselItem key={index}>
-                      <div className="w-full h-[600px] overflow-y-auto touch-pan-y">
-                        <img
-                          src={item.src}
-                          alt={item.alt}
-                          className="w-full max-h-[1000px] object-contain rounded-md"
-                        />
-                      </div>
-                      <p className="mt-4 text-center text-sm text-muted-foreground font-black">
-                        {item.caption}
-                      </p>
-                    </CarouselItem>
-                  ))}
-                  {/* PDF CarouselItems */}
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={lessonRubric} className="w-full h-[600px] max-w-full rounded-md" title="Lesson Plan Rubric" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      This rubric outlines expectations for effective secondary math lesson planning.
-                    </p>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={exitSlip} className="w-full h-[600px] max-w-full rounded-md" title="9.1.3 Exit Slip" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      Student exit slip demonstrating understanding of trigonometric reference angles and ratios.
-                    </p>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={ch7Guide} className="w-full h-[600px] max-w-full rounded-md" title="Parent Guide for Ch 7" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      A parent guide explaining core logarithmic concepts covered in Chapter 7.
-                    </p>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={ch7Review} className="w-full h-[600px] max-w-full rounded-md" title="Ch 7 Review Guide" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      A simple review guide for parents to help students with exponent and logarithm topics.
-                    </p>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={cpm913} className="w-full h-[600px] max-w-full rounded-md" title="CPM 9.1.3 Lesson Plan" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      Lesson materials for CPM Chapter 9, Section 1.3, focusing on trigonometry and unit circle.
-                    </p>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={cpm3_913} className="w-full h-[600px] max-w-full rounded-md" title="CPM3 9.1.3 Document" />
-                    </div>
-                    <p className="mt-4 text-center font-black text-sm text-muted-foreground">
-                      Supporting lesson resources aligned to CPM3 Chapter 9, 9.1.3 objectives.
-                    </p>
-                  </CarouselItem>
-                </CarouselContent>
-              </div>
-              <CarouselPrevious className='text-black'/>
-              <CarouselNext className='text-black'/>
-            </Carousel>
-          </section>
-
-          <section id="goals" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h2 className="text-xl font-semibold mb-6">Goals & Next Steps</h2>
-            <ul className="list-disc list-inside space-y-3 max-w-xl text-left">
-              <li>Strengthen my use of differentiated instruction and formative assessment tools.</li>
-              <li>Integrate real-world applications in math through project-based learning.</li>
-              <li>Build stronger family-school communication strategies.</li>
-              <li>Continue refining restorative practices in classroom management.</li>
-              <li>Expand my use of technology to support student reflection and voice.</li>
-            </ul>
-          </section>
-
-          <section id="contact" className="snap-start w-full h-screen px-4 md:px-6 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h2 className="text-xl font-semibold mb-6">Contact</h2>
-            <p className="mb-2">Email: dminor@laalliance.org</p>
-          </section>
         </div>
       </main>
 
-      <footer className="text-center p-4 text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} DeAndre Minor. All rights reserved.
+      <footer className="w-full text-center p-4 text-sm text-gray-500">
+        <p>Email: dminor@laalliance.org</p>
+        <p>&copy; {new Date().getFullYear()} DeAndre Minor. All rights reserved.</p>
       </footer>
     </div>
-    </ThemeProvider>
   )
 }
