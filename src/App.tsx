@@ -49,6 +49,12 @@ export default function App() {
 
   const cstpCards = [
     {
+      title: "CSTP Overall Growth",
+      image: cstpo,
+      alt: "CSTP Reflection 6",
+      text: "Overall, my CSTP results demonstrate meaningful professional growth across all areas of teaching practice throughout induction. I have become more intentional in using student data, fostering academic discourse, designing equitable learning experiences, and reflecting on instructional decisions. At the same time, I recognize that there is still room to grow in strengthening student ownership, increasing independent academic communication, and refining responsive instructional practices. My next steps are to continue building systems that empower students to think critically, communicate confidently, and take a more active role in their learning.",
+    },
+    {
       title: "CSTP 1: Engaging and Supporting All Students in Learning",
       image: cstp1,
       alt: "CSTP Reflection 1",
@@ -83,12 +89,6 @@ export default function App() {
       image: cstp6,
       alt: "CSTP Reflection 6",
       text: "My results in CSTP 6 reflect strong growth in reflection, collaboration, professionalism, and commitment to continuous improvement. During induction, I consistently sought feedback from coaches and colleagues, reflected on instructional practices, and adjusted instruction to better support student learning and equity. While I have grown significantly as a reflective educator, I want to continue developing leadership skills and contributing more actively to professional learning communities. My next steps include continuing collaboration with colleagues, participating in professional development, and sharing successful instructional practices with others.",
-    },
-    {
-      title: "CSTP Overall Growth",
-      image: cstpo,
-      alt: "CSTP Reflection 6",
-      text: "Overall, my CSTP results demonstrate meaningful professional growth across all areas of teaching practice throughout induction. I have become more intentional in using student data, fostering academic discourse, designing equitable learning experiences, and reflecting on instructional decisions. At the same time, I recognize that there is still room to grow in strengthening student ownership, increasing independent academic communication, and refining responsive instructional practices. My next steps are to continue building systems that empower students to think critically, communicate confidently, and take a more active role in their learning.",
     },
   ];
 
