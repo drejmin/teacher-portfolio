@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import lessonRubric from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
-// import cstp from './assets/Secondary Math Lesson Plan Rubric.docx.pdf'
+import cstp1 from './assets/CSTP1.png'
+import cstp2 from './assets/CSTP2.png'
+import cstp3 from './assets/CSTP3.png'
+import cstp4 from './assets/CSTP4.png'
+import cstp5 from './assets/CSTP5.png'
+import cstp6 from './assets/CSTP6.png'
+import cstpo from './assets/CSTPOverall.png'
 import mesaEthics from'./assets/MESA Ethics - Presentation.pdf'
 import notebookLM from'./assets/NotebookLM screenshot.pdf'
 import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
@@ -18,6 +24,7 @@ import {
 export default function App() {
   const videoRef = useRef<HTMLIFrameElement>(null)
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCstpCard, setActiveCstpCard] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,18 +47,52 @@ export default function App() {
     }
   }, [])
 
-  // const artifactImages = [
-  //   {
-  //     src: "https://i.imgur.com/oSaJWVH.jpeg",
-  //     alt: "Student Work Example 1",
-  //     caption: "Student work showing application of logarithmic rules.",
-  //   },
-  //   {
-  //     src: "https://i.imgur.com/QqPw1lg.jpeg",
-  //     alt: "Student Work Example 2",
-  //     caption: "Student work showing application of logarithmic rules.",
-  //   },
-  // ];
+  const cstpCards = [
+    {
+      title: "CSTP 1: Engaging and Supporting All Students in Learning",
+      image: cstp1,
+      alt: "CSTP Reflection 1",
+      text: "My results in CSTP 1 show growth in designing student-centered and culturally responsive learning experiences that increase participation and engagement. Throughout induction, I became more intentional about incorporating student interests, backgrounds, and voice into instruction. However, I still want to grow in creating even more opportunities for students to independently take ownership of discussions, learning choices, and collaborative problem solving. My next steps are to continue strengthening discourse routines, student reflection opportunities, and structures that promote student agency and equitable participation.",
+    },
+    {
+      title: "CSTP 2: Creating and Maintaining Effective Environments",
+      image: cstp2,
+      alt: "CSTP Reflection 2",
+      text: "My CSTP 2 results reflect growth in building a classroom culture that is safe, collaborative, and academically focused. I improved in using restorative and relationship-based practices to support student behavior and classroom management while creating structures that encourage productive collaboration. One area I still want to strengthen is increasing student accountability for maintaining classroom norms and supporting one another during learning. Moving forward, I plan to continue refining collaborative expectations and giving students more responsibility in shaping classroom culture.",
+    },
+    {
+      title: "CSTP 3: Understanding and Organizing Subject Matter",
+      image: cstp3,
+      alt: "CSTP Reflection 3",
+      text: "My growth in CSTP 3 is reflected in my ability to connect mathematical concepts to real-world applications and interdisciplinary learning experiences. I became more effective at designing lessons that encourage critical thinking, collaboration, and deeper conceptual understanding. I would still like to improve how consistently students independently make connections across content areas and apply learning in unfamiliar contexts. My next steps include continuing to design project-based and problem-solving activities that require students to think critically and apply concepts beyond procedural practice.",
+    },
+    {
+      title: "CSTP 4: Planning Instruction and Designing Learning Experiences",
+      image: cstp4,
+      alt: "CSTP Reflection 4",
+      text: "CSTP 4 represents one of my strongest areas of growth during induction. I improved in using student assessment data, responsive instructional strategies, and differentiated supports to adjust instruction in real time based on student needs. While I have grown in planning engaging and responsive lessons, I still want to strengthen how efficiently I adapt instruction during lessons when misconceptions emerge. My next steps are to continue refining checks for understanding, flexible grouping, and targeted intervention strategies that support all learners during instruction.",
+    },
+    {
+      title: "CSTP 5: Assessing Students for Learning",
+      image: cstp5,
+      alt: "CSTP Reflection 5",
+      text: "My CSTP 5 results show growth in using assessment practices to monitor progress and inform instruction. I became more intentional about analyzing assessment data, involving students in self-assessment, and using equitable grading and reassessment opportunities to support growth. An area I still want to improve is helping students more consistently interpret their own data and use it to set meaningful learning goals independently. Moving forward, I plan to increase opportunities for student reflection, goal setting, and data discussions to strengthen student ownership of learning.",
+    },
+    {
+      title: "CSTP 6: Developing as a Professional Educator",
+      image: cstp6,
+      alt: "CSTP Reflection 6",
+      text: "My results in CSTP 6 reflect strong growth in reflection, collaboration, professionalism, and commitment to continuous improvement. During induction, I consistently sought feedback from coaches and colleagues, reflected on instructional practices, and adjusted instruction to better support student learning and equity. While I have grown significantly as a reflective educator, I want to continue developing leadership skills and contributing more actively to professional learning communities. My next steps include continuing collaboration with colleagues, participating in professional development, and sharing successful instructional practices with others.",
+    },
+    {
+      title: "CSTP Overall Growth",
+      image: cstpo,
+      alt: "CSTP Reflection 6",
+      text: "Overall, my CSTP results demonstrate meaningful professional growth across all areas of teaching practice throughout induction. I have become more intentional in using student data, fostering academic discourse, designing equitable learning experiences, and reflecting on instructional decisions. At the same time, I recognize that there is still room to grow in strengthening student ownership, increasing independent academic communication, and refining responsive instructional practices. My next steps are to continue building systems that empower students to think critically, communicate confidently, and take a more active role in their learning.",
+    },
+  ];
+
+  const activeCstp = cstpCards[activeCstpCard];
 
   const navItems = [
     { id: "introduction", label: "Introduction" },
@@ -147,13 +188,46 @@ export default function App() {
 
           <section id="cstp" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
             <h2 className="text-xl font-semibold mb-6">CSTP growth and Development</h2>
-              <div className="overflow-hidden touch-pan-y">
-                    {/* <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={cstp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
-                    </div> */}
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
-                      Explanations for CSTP performances.
-                    </p>  
+              <div className="w-full max-w-5xl">
+                <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 rounded-md border border-zinc-200 bg-zinc-50 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+                  <img
+                    src={activeCstp.image}
+                    alt={activeCstp.alt}
+                    className="h-[min(42vh,360px)] min-h-[220px] w-full rounded-md object-cover"
+                  />
+                  <div className="max-w-2xl text-center">
+                    <h3 className="text-lg font-semibold text-foreground">{activeCstp.title}</h3>
+                    <p className="mt-2 text-sm font-black text-muted-foreground">
+                      {activeCstp.text}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
+                  {cstpCards.map((card, index) => (
+                    <button
+                      key={card.title}
+                      type="button"
+                      onMouseEnter={() => setActiveCstpCard(index)}
+                      onFocus={() => setActiveCstpCard(index)}
+                      onClick={() => setActiveCstpCard(index)}
+                      className={`group h-full overflow-hidden rounded-md border bg-white p-0 text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 dark:bg-zinc-950 ${
+                        activeCstpCard === index
+                          ? "border-zinc-900 ring-2 ring-zinc-900 dark:border-white dark:ring-white"
+                          : "border-zinc-200 dark:border-zinc-800"
+                      }`}
+                    >
+                      <img
+                        src={card.image}
+                        alt={card.alt}
+                        className="h-24 w-full object-cover transition duration-300 group-hover:scale-105"
+                      />
+                      <span className="block px-2 py-3 text-center text-xs font-black text-foreground">
+                        {card.title.split(":")[0]}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
           </section>
 
