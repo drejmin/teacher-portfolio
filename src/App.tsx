@@ -13,6 +13,7 @@ import oneNoteWriteUp from'./assets/CPM3  9.1.6.docx.pdf'
 import { Button } from "./components/ui/button"
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -25,6 +26,8 @@ export default function App() {
   const videoRef = useRef<HTMLIFrameElement>(null)
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCstpCard, setActiveCstpCard] = useState(0);
+  const [contributionApi, setContributionApi] = useState<CarouselApi>();
+  const [activeContributionSlide, setActiveContributionSlide] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,6 +49,23 @@ export default function App() {
       if (current) observer.unobserve(current)
     }
   }, [])
+
+  useEffect(() => {
+    if (!contributionApi) return
+
+    const updateContributionSlide = () => {
+      setActiveContributionSlide(contributionApi.selectedScrollSnap())
+    }
+
+    updateContributionSlide()
+    contributionApi.on("select", updateContributionSlide)
+    contributionApi.on("reInit", updateContributionSlide)
+
+    return () => {
+      contributionApi.off("select", updateContributionSlide)
+      contributionApi.off("reInit", updateContributionSlide)
+    }
+  }, [contributionApi])
 
   const cstpCards = [
     {
@@ -101,6 +121,8 @@ export default function App() {
     { id: "reflections", label: "Contributing to the Profession" },
   ];
 
+  const contributionSlides = ["NotebookLM", "Lesson Plan Rubric", "OneNote", "Canva"];
+
   return (
       <div className="text-foreground font-mono transition-colors duration-500 ease-in-out min-h-screen w-full flex flex-col items-center">
       <header
@@ -150,11 +172,11 @@ export default function App() {
         </nav>
       </header>
 
-      <main className="pt-20 snap-y snap-mandatory overflow-y-auto w-full flex flex-col items-center justify-center p-4">
-        <div className="w-full max-w-4xl mx-auto space-y-16">
+      <main className="pt-20 w-full flex flex-col items-center justify-center p-4">
+        <div className="w-full max-w-5xl mx-auto space-y-16">
           <section
             id="introduction"
-            className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-10 flex flex-col items-center justify-center gap-6 text-center bg-white dark:bg-zinc-900"
+            className="scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-10 flex flex-col items-center justify-center gap-6 text-center bg-white dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091870622-1e7e6a5eab48')" }}
           >
             <div className="w-full max-w-3xl flex flex-col items-center justify-center">
@@ -186,8 +208,11 @@ export default function App() {
             </div>
           </section>
 
-          <section id="cstp" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
-            <h2 className="text-xl font-semibold mb-6">CSTP growth and Development</h2>
+          <section id="cstp" className="scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800">
+            <h2 className="text-xl font-semibold mb-3">CSTP Growth and Development</h2>
+            <p className="mx-auto mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              Select a card to review each CSTP reflection and the image connected to that area of growth.
+            </p>
               <div className="w-full max-w-5xl">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 rounded-md border border-zinc-200 bg-zinc-50 p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
                   <img
@@ -197,7 +222,7 @@ export default function App() {
                   />
                   <div className="max-w-2xl text-center">
                     <h3 className="text-lg font-semibold text-foreground">{activeCstp.title}</h3>
-                    <p className="mt-2 text-sm font-black text-muted-foreground">
+                    <p className="mt-2 text-sm font-medium leading-relaxed text-muted-foreground">
                       {activeCstp.text}
                     </p>
                   </div>
@@ -208,6 +233,7 @@ export default function App() {
                     <button
                       key={card.title}
                       type="button"
+                      aria-pressed={activeCstpCard === index}
                       onMouseEnter={() => setActiveCstpCard(index)}
                       onFocus={() => setActiveCstpCard(index)}
                       onClick={() => setActiveCstpCard(index)}
@@ -222,7 +248,7 @@ export default function App() {
                         alt={card.alt}
                         className="h-24 w-full object-cover transition duration-300 group-hover:scale-105"
                       />
-                      <span className="block px-2 py-3 text-center text-xs font-black text-foreground">
+                      <span className="block px-2 py-3 text-center text-xs font-semibold text-foreground">
                         {card.title.split(":")[0]}
                       </span>
                     </button>
@@ -231,24 +257,23 @@ export default function App() {
               </div>
           </section>
 
-          <section id="artifacts" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+          <section id="artifacts" className="scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800">
             <h2 className="text-xl font-semibold mb-6">Developing as a Professional Educator</h2>
             <div className="w-full max-w-4xl text-left">
-              <div className="overflow-hidden touch-pan-y">
+              <div className="overflow-hidden touch-pan-y space-y-6">
 
-                    <h3 className="text-l font-semibold mb-6 text-center">Professional Goal</h3>
+                    <h3 className="text-l font-semibold text-center">Professional Goal</h3>
                     
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto max-w-3xl text-center font-medium leading-relaxed text-sm text-muted-foreground">
                       One of my biggest professional goals is continuing to strengthen student communication and ownership
                        within mathematics and project-based learning environments. I want students to move beyond simply 
                        finding answers and instead confidently explain, justify, and apply their thinking both verbally and 
                        in writing. I also want to continue refining how I use assessment data, collaborative structures, and 
                        academic language supports to make instruction more responsive and accessible for all learners.
                     </p>
-                    <br />
-                    <h3 className="text-l font-semibold mb-6 text-center">Actions to Meet My Goal</h3>
+                    <h3 className="text-l font-semibold text-center">Actions to Meet My Goal</h3>
                     
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto max-w-3xl text-center font-medium leading-relaxed text-sm text-muted-foreground">
                       To achieve this goal, I plan to continue designing lessons that prioritize discourse, collaboration, 
                       and productive struggle. I will use student assessment data, exit tickets, and classroom discussions 
                       to identify misconceptions and adjust instruction in real time. I also plan to collaborate with 
@@ -257,10 +282,9 @@ export default function App() {
                       able to independently explain their reasoning, engage in meaningful discussions, and demonstrate 
                       stronger conceptual understanding across assessments and classroom activities.
                     </p>
-                    <br />
-                    <h3 className="text-l font-semibold mb-6 text-center">How I Will Remain a Connected Educator</h3>
+                    <h3 className="text-l font-semibold text-center">How I Will Remain a Connected Educator</h3>
                     
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto max-w-3xl text-center font-medium leading-relaxed text-sm text-muted-foreground">
                       I will remain connected as an educator by continuing to seek out opportunities for growth, 
                       collaboration, and reflection. Professional development, coaching conversations, and 
                       collaboration with colleagues provide valuable perspectives that help improve my teaching 
@@ -269,10 +293,9 @@ export default function App() {
                       Remaining open to feedback and adapting to student needs will help me continue growing 
                       throughout my career.
                     </p>
-                    <br />
-                    <h3 className="text-l font-semibold mb-6 text-center">My Advice to New Teachers</h3>
+                    <h3 className="text-l font-semibold text-center">My Advice to New Teachers</h3>
                     
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <p className="mx-auto max-w-3xl text-center font-medium leading-relaxed text-sm text-muted-foreground">
                       Give yourself permission to grow over time. Strong teaching does not happen overnight, and some 
                       of the best learning experiences come from reflecting on lessons that did not go perfectly. Focus 
                       on building relationships with students first, because students are more willing to take academic 
@@ -291,16 +314,17 @@ export default function App() {
               </div>
             </div>
           </section>
-          <section id="reflections" className="snap-start scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900">
+          <section id="reflections" className="scroll-mt-24 w-full min-h-screen px-4 md:px-6 py-12 flex flex-col items-center justify-center text-center bg-white dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800">
             <h2 className="text-xl font-semibold mb-6">Contributing to the Profession</h2>
             <div className="w-full max-w-4xl text-left">
-              <Carousel className="w-full">
+              <Carousel className="w-full" setApi={setContributionApi}>
               <div className="overflow-hidden touch-pan-y">
                 <CarouselContent>
                   {/* PDF CarouselItems */}
                   <CarouselItem>
-                    <h3 className="text-l font-semibold mb-6 text-center"> NotebookLM</h3>
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <div className="mx-auto mb-5 max-w-3xl rounded-md border border-zinc-200 bg-zinc-50 p-4 text-center dark:border-zinc-800 dark:bg-zinc-950">
+                    <h3 className="text-l font-semibold">NotebookLM</h3>
+                    <p className="mt-3 font-medium leading-relaxed text-sm text-muted-foreground">
                      NotebookLM has become a valuable tool for organizing information, summarizing resources, and 
                      supporting lesson preparation. I use it to upload readings, lesson materials, and instructional 
                      documents so I can quickly generate summaries, guiding questions, and key ideas for instruction. 
@@ -310,24 +334,28 @@ export default function App() {
                      already sourced material piece by piece. I am excited to continue using NotebookLM because it saves 
                      planning time while helping create more organized and accessible learning materials for students.
                     </p>
+                    </div>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={notebookLM} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={notebookLM} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="NotebookLM screenshot" />
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <h3 className="text-l font-semibold mb-6 text-center">Lesson Plan Rubric</h3>
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <div className="mx-auto mb-5 max-w-3xl rounded-md border border-zinc-200 bg-zinc-50 p-4 text-center dark:border-zinc-800 dark:bg-zinc-950">
+                    <h3 className="text-l font-semibold">Lesson Plan Rubric</h3>
+                    <p className="mt-3 font-medium leading-relaxed text-sm text-muted-foreground">
                       This is a rubric that I created that sets up expectations for effective secondary math lesson planning.
                       It focuses on the purpose of the activity, criteria as well as questions. It is flexible enough to add 
                       things in or take things out without being too cumbersome and still maintaning a high level of rigor. 
                     </p>
+                    </div>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
                       <iframe src={lessonRubric} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <h3 className="text-l font-semibold mb-6 text-center">OneNote</h3>
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <div className="mx-auto mb-5 max-w-3xl rounded-md border border-zinc-200 bg-zinc-50 p-4 text-center dark:border-zinc-800 dark:bg-zinc-950">
+                    <h3 className="text-l font-semibold">OneNote</h3>
+                    <p className="mt-3 font-medium leading-relaxed text-sm text-muted-foreground">
                       OneNote has been one of my most useful organizational tools for lesson planning,
                        coaching notes, induction reflections, and classroom resources. I use it to 
                        quickly organize instructional ideas, observation feedback, assessment data, 
@@ -336,27 +364,49 @@ export default function App() {
                        this application works best with a stylus however, it can be utilized without one as 
                        well.
                     </p>
+                    </div>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={oneNoteWriteUp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={oneNoteWriteUp} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="OneNote planning write-up" />
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <h3 className="text-l font-semibold mb-6 text-center">Canva</h3>
-                    <p className="mx-auto mt-4 max-w-3xl text-center font-black text-sm text-muted-foreground">
+                    <div className="mx-auto mb-5 max-w-3xl rounded-md border border-zinc-200 bg-zinc-50 p-4 text-center dark:border-zinc-800 dark:bg-zinc-950">
+                    <h3 className="text-l font-semibold">Canva</h3>
+                    <p className="mt-3 font-medium leading-relaxed text-sm text-muted-foreground">
                      I regularly use Canva to create slide decks, student-facing handouts, project visuals, and 
                      collaborative activities for both my IM3 Honors and MESA classes. Canva has helped me make 
                      lessons more visually engaging and easier for students to follow, especially during project-based 
                      learning and engineering design activities. I plan to continue using it because it allows students 
                      to present ideas creatively while also supporting organization and accessibility for visual learners.
                     </p>
+                    </div>
                     <div className="w-full max-w-4xl overflow-y-auto rounded-md mx-auto">
-                      <iframe src={mesaEthics} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="Lesson Plan Rubric" />
+                      <iframe src={mesaEthics} className="w-full h-[min(60vh,600px)] min-h-[320px] max-w-full rounded-md" title="MESA Ethics Canva presentation" />
                     </div>
                   </CarouselItem>
                 </CarouselContent>
               </div>
               <CarouselPrevious className='text-black'/>
               <CarouselNext className='text-black'/>
+              <div className="mt-6 flex items-center justify-center gap-2">
+                {contributionSlides.map((slide, index) => (
+                  <button
+                    key={slide}
+                    type="button"
+                    onClick={() => contributionApi?.scrollTo(index)}
+                    className={`h-2.5 rounded-full p-0 transition-all ${
+                      activeContributionSlide === index
+                        ? "w-8 bg-zinc-900 dark:bg-white"
+                        : "w-2.5 bg-zinc-300 hover:bg-zinc-500 dark:bg-zinc-700"
+                    }`}
+                    aria-label={`Show ${slide} slide`}
+                    aria-current={activeContributionSlide === index ? "true" : undefined}
+                  />
+                ))}
+              </div>
+              <p className="mt-2 text-center text-xs text-muted-foreground">
+                {activeContributionSlide + 1} of {contributionSlides.length}: {contributionSlides[activeContributionSlide]}
+              </p>
             </Carousel>
             </div>
           </section>
